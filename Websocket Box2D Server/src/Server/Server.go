@@ -1,15 +1,14 @@
 package Server
 
 import (
-	"Log"
+	"log"
 	"fmt"
 	"sync"
-	"Server/Networking"
 )
 
 type Server struct {
 	activeThreads sync.WaitGroup
-	networkController *Networking.NetworkController
+	networkController *NetworkController
 	}
 func NewServer() *Server {
     return &Server{/*X: 5*/}
@@ -18,7 +17,7 @@ func (s *Server) Init() {
 	log.Println("Starting Server");
 	
 	//Now initialize the NetworkingController
-	s.networkController = Networking.NewNetworkController()
+	s.networkController = NewNetworkController()
 	
 	mainLoop: //Label of loop, useful for only breaking out
 	for {
